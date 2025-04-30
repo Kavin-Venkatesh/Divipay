@@ -1,0 +1,67 @@
+.groups{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin : 0 0 0 -9rem;
+
+    @media (max-width : 768px) {
+        width : 100vw;
+        margin : 0 0 0 2rem;
+    }
+
+}
+
+.groups::-webkit-scrollbar {
+    display: none; 
+  }
+  
+
+.groupCard{
+    width : 80%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    border : 1px solid #dbd6d6;
+    cursor: pointer;
+    flex-shrink: 0;
+    
+    @media (max-width : 768px) {
+        width : 90%;
+        height: 10%;
+    }
+
+}
+
+
+.groupTitleContainer{
+    width : 80%;
+    height : auto;
+}
+
+.groupTitleName{
+    font-size : 1.4rem;
+    margin : 0 0 0 3rem;
+    font-weight: 250;
+
+    @media (max-width : 768px) {
+        font-size: 1.2rem;
+        margin: 0 0 0 1rem;
+    }
+}
+
+
+.deleteIcon{
+    color : red;
+    width : 2.5rem;
+    height: 2.5rem;
+    margin: 0 0 0 1rem;
+    cursor: pointer;
+
+    @media (max-width : 768px) {
+        margin: 0 0 0 0;
+    }
+}
