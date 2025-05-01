@@ -11,7 +11,7 @@ import { IoFolderSharp } from "react-icons/io5";
 //Components import
 import {NavBar} from '../dashboard/components/navBar/navBar.js';
 import GroupContainer from './components/groupContainer/groupContainer.js';
-
+import CreateGroupModal from './components/createGroupModal/creategroupmodal.js';
 
 //dashboard Page
 const DashBoard = () =>{
@@ -30,6 +30,12 @@ const DashBoard = () =>{
         { _id: "010", title: "Roommates Split" }
         
     ])
+
+    const [isModalOpen , setModalOpen] = useState(false);
+
+    const handleGroupCreate = (newGroup) => {
+        setGroups([...groups, {_id : Date.now(), ...newGroup}]);
+    }
 
     return(
         <div class = {styles.mainContainer}>
@@ -81,7 +87,9 @@ const DashBoard = () =>{
             
             <div className={styles.bottomContainer}>
                     <div>
-                        <button className={styles.createGroupButton}>
+                        <button className={styles.createGroupButton}
+                            onClick={() => setModalOpen(true)}
+                        >
                                 <IoMdAdd className={styles.addIcon}/>
                                 Create Group
                         </button>
@@ -92,6 +100,12 @@ const DashBoard = () =>{
                          Join Group     
                     </button>
             </div>
+
+            <CreateGroupModal
+                isOpen = {isModalOpen}
+                isClose = {()=> setModalOpen(false)}
+                onGroupCreate = {handleGroupCreate}
+            />
         </div>
     )
 }
